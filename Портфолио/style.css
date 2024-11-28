@@ -1,0 +1,426 @@
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    max-width: 100%;
+    background-color: black;
+    color: whitesmoke;
+    font-family: 'Kanit', sans-serif;
+    list-style: none;
+    border: 2px solid red; /* Добавляет красную рамку вокруг блока */
+    outline: 2px solid red; /* Добавляет красную обводку вокруг блока */
+}
+
+h1, h2 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+}
+
+/* Навигационная панель */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    justify-content: flex-start; /* Логотип слева, меню справа */
+    position: relative;
+}
+
+/* Бургер-иконка */
+.burger-menu {
+    font-size: 30px; /* Сделано одинаково с логотипом */
+    cursor: pointer;
+    color: whitesmoke;
+    margin-right: 20px;
+    display: none; /* Прячем бургер-иконку по умолчанию */
+}
+
+/* Логотип */
+.logo h1 {
+    margin: 0;
+    font-size: 36px; /* Размер логотипа */
+}
+
+.logo a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+/* Стили для меню */
+.menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Убираем подчеркивание у ссылок в меню */
+.menu li a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.menu a {
+    font-size: 21px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #6F6F6F;
+}
+
+/* Медиа-запрос для маленьких экранов */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: block; /* Показываем бургер-иконку */
+    }
+
+    .menu {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Меню начнёт выезжать с правой стороны */
+        width: 250px;
+        height: 100%;
+        background-color: black;
+        padding-top: 60px;
+        transition: right 0.4s ease;
+        z-index: 10;
+    }
+
+    .menu.active {
+        left: 0; /* Меню будет видно при активации */
+    }
+
+    .menu li {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    /* Цвет при наведении на ссылки в меню */
+    .menu a:hover {
+        color: #6F6F6F;
+    }
+   
+}
+
+/* Размещение элементов на больших экранах */
+@media (min-width: 769px) {
+    .logo {
+        order: 1; /* Логотип всегда слева */
+        margin-left: 80px; /* Отступ слева для логотипа, как у меню */
+    }
+    .logo h1{
+        font-size: 36px;
+    }
+
+    .menu {
+        order: 2; /* Меню всегда справа */
+        margin-left: auto; /* Отодвигаем меню вправо */
+        padding-right: 80px; /* Добавляем отступ справа, чтобы меню не было слито с краем */
+    }
+    
+    .menu li {
+        margin: 0 20px; /* Отступы между пунктами меню */
+    }
+
+    .menu a {
+        font-size: 21px; /* Размер шрифта */
+    }
+}
+/* Стили для блока с текстом */
+.main_text_page_home h1 {
+    margin: 0;
+    margin-left: 80px;   /* Отступ слева */
+    font-size: 80px;
+    justify-content: center;
+    color: #A5A5A5;
+}
+
+.main_text_page_home p {
+    margin: 0;
+    margin-left: 80px;   /* Отступ слева */
+    font-size: 24px;
+    color:#6F6F6F;
+}
+
+.main_text_page_home {
+    padding: 20px;
+    position: absolute;       /* Текст будет поверх изображения */
+    margin-top: 12%;           /* Расположение текста сверху */
+    left: 0;                   /* Отступ слева */
+    color: white;              /* Цвет текста */
+    font-size: 24px;           /* Размер шрифта для текста */
+    z-index: 1;                /* Устанавливаем текст поверх изображения */
+    max-width: 80%;            /* Ограничиваем ширину текста */
+    width: 100%;               /* Расширяем контейнер на всю ширину */
+}
+
+/* Медиа запросы для экрана шириной до 412px */
+@media (max-width: 412px) {
+    .main_text_page_home {
+        padding: 5px;
+        margin-left: 0;        /* Убираем отступ слева на мобильных устройствах */
+        margin-top: 12%;       /* Немного увеличиваем отступ сверху */
+        max-width: 100%;       /* Ширина блока теперь 100% */
+        width: 100%;           /* Текст будет растянут на всю ширину */
+    }
+
+    .main_text_page_home h1 {
+        font-size: 28px;       /* Уменьшаем размер заголовка */
+        margin-bottom: 8px;    /* Меньше отступ снизу */
+    }
+
+    .main_text_page_home p {
+        font-size: 14px;       /* Уменьшаем размер текста */
+        margin-left: 0;        /* Убираем отступ слева */
+    }
+}
+
+/* Дополнительные настройки для экрана шириной до 915px */
+@media (max-width: 915px) {
+    .main_text_page_home {
+        padding: 10px;
+        margin-left: 0;        /* Убираем отступ слева */
+        max-width: 100%;       /* Увеличиваем ширину текста до 100% */
+        width: 100%;           /* Растягиваем блок на всю ширину */
+    }
+
+    .main_text_page_home h1 {
+        margin-left: 0px;
+        font-size: 40px;         /* Увеличиваем размер шрифта для заголовка */
+    }
+
+    .main_text_page_home p {
+        font-size: 18px;         /* Увеличиваем размер шрифта для текста */
+    }
+}
+
+
+ /* Стили для блока с изображением */
+ .main_image_page_home {
+    position: absolute;           /* Позволяет разместить блок по центру */
+    top: 50%;                     /* Сдвигаем блок на 50% от верха */
+    left: 53%;                    /* Сдвигаем блок на 50% от левого края */
+    transform: translate(-50%, -50%); /* Корректируем позицию для точного центрирования */
+    width: 30%;                   /* Устанавливаем ширину блока на 80% экрана */
+    height: 70%;                  /* Устанавливаем высоту блока на 80% экрана */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 100%); /* Плавный переход */
+    border-radius: 10px;         /* Закругляем углы */
+    overflow: hidden;            /* Обрезаем все, что выходит за пределы блока */
+   
+}
+
+.main_image_page_home img {
+    width: 100%;                  /* Изображение растягивается на всю ширину блока */
+    height: 100%;                 /* Изображение растягивается на всю высоту блока */
+    object-fit: cover;            /* Обеспечиваем полное заполнение блока, не искажая пропорции */
+}
+/* Медиа-запрос для экранов шириной 412px и высотой 915px */
+@media (max-width: 412px) and (max-height: 915px) {
+    .main_image_page_home {
+        
+        display: none;  /* Скрыть блок с изображением на экранах 412x915 */
+    }
+}
+
+.main_image_social_page-home{
+    margin-right: 88%;
+    margin-top: 30%;
+    display: flex;
+    flex-direction: column; /* Размещаем изображения в колонку */
+    align-items: center;    /* Выравнивание изображений по центру */
+    gap: 10px;              /* Отступы между изображениями */
+}
+
+.main_image_social_page-home img{
+    width: 100%;            /* Изображения растягиваются на всю ширину контейнера */
+    max-width: 500px;       /* Ограничение максимальной ширины изображений */
+    height: auto;  
+}
+/* Медиа-запрос для экранов 412x915 */
+@media (max-width: 412px) and (max-height: 915px) {
+    .main_image_social_page-home {
+        display: flex;
+        flex-direction: row;  /* Размещаем изображения в строку */
+        justify-content: center;  /* Центрируем по вертикали */
+        align-items: center;      /* Центрируем по горизонтали */
+        position: absolute;       /* Устанавливаем абсолютное позиционирование */
+        bottom: 60px;             /* Сдвигаем блок вниз на 10px */
+        gap: 10px;                /* Отступы между изображениями */
+        width: 100%;              /* Задаем ширину блока */
+        padding-bottom: 10px;     /* Добавляем отступ снизу для подвала */
+    }
+
+    .main_image_social_page-home img {
+        
+        width: 80%;              /* Изображения занимают 80% ширины экрана */
+        max-width: 350px;        /* Максимальная ширина изображения */
+        height: auto;            /* Сохраняем пропорции изображения */
+        margin: 0;               /* Убираем внешние отступы */
+    }
+}
+
+
+
+
+.main_podval_porfolio_page_home {
+    background-color: #373737;        /* Цвет фона подвала */
+    color: #fff;                      /* Цвет текста */               /* Центрирование текста */
+    padding: 22px 0;                  /* Увеличенные отступы сверху и снизу */
+    font-size: 16px;                  /* Размер шрифта */
+    position: relative;               /* Положение относительно страницы */
+    width: 75%;                       /* Ширина подвала остаётся 65% */
+    margin-left: 25%;                 /* Сдвигаем вправо для центрирования */
+    margin-top: -75px;                /* Поднимаем подвал вверх */
+    border-top-left-radius: 20px;
+    
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 412px) {
+    .main_podval_porfolio_page_home {
+        border: 2px solid red; /* Добавляет красную рамку вокруг блока */
+        margin-top: 190%;
+        font-size: 14px;              /* Уменьшаем шрифт для маленьких экранов */
+        padding: 30px 0;              /* Увеличенные отступы сверху и снизу */
+        width: 100%;                  /* Подвал на всю ширину экрана */
+        margin-left: 0;               /* Убираем смещение вправо */
+        border-top-left-radius: 0;    /* Опционально: убираем закругление на мобильных */
+        position: relative;           /* Убираем фиксированное позиционирование */
+        top: auto;                    /* Убираем сдвиг сверху */
+    }
+
+   
+}
+
+.main_podval_porfolio_page_home h4{
+    margin-left: 17%;         /* Убираем смещение заголовка */
+    margin-top: 0;          /* Убираем смещение сверху */
+    font-size: 24px;
+    color: #C7C7C7;
+    
+}
+
+.main_podval_porfolio_page_home p{
+    margin-left: 17%;         /* Убираем смещение абзацев */
+    margin-top: 0;       /* Добавляем небольшой отступ сверху для текста */
+    font-size: 24px;
+    color: #C7C7C7;
+}
+
+
+
+/* Основной контейнер для карточек */
+.portfolio {
+    margin-right: 15%;
+    position: absolute;  /* Абсолютное позиционирование */
+    top: 190px;  /* Отступ сверху */
+    right: 20px;  /* Отступ справа */
+    display: flex;  /* Используем flexbox для выравнивания карточек */
+    flex-direction: column;  /* Располагаем карточки вертикально */
+    gap: 15px;  /* Отступы между карточками */
+}
+
+/* Стиль для каждой карточки */
+.card {
+    background-color: #fff;  /* Белый фон для карточек */
+    border-radius: 10px;  /* Скругленные углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Тень для глубины */
+    width: 300px;  /* Ширина карточки */
+    padding: 20px;  /* Внутренние отступы */
+    text-align: center;  /* Выравнивание текста по центру */
+    transition: transform 0.3s, box-shadow 0.3s;  /* Плавные переходы */
+}
+
+/* Стиль для изображения внутри карточки */
+.card img {
+    width: 100%;  /* Изображение растягивается на всю ширину карточки */
+    height: auto;  /* Сохранение пропорций */
+    border-radius: 8px;  /* Закругление углов изображения */
+}
+
+/* Стиль для заголовка */
+.card h3 {
+    font-size: 18px;
+    margin-top: 15px;
+    color: #333;
+}
+
+/* Стиль для описания */
+.card p {
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Эффект при наведении на карточку */
+.card:hover {
+    transform: translateY(-5px);  /* Подъем карточки при наведении */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);  /* Увеличиваем тень */
+}
+
+/* Лестничное расположение карточек */
+.portfolio .card:nth-child(1) {
+    transform: translateY(0) translateX(0);  /* Первая карточка без смещения */
+}
+
+.portfolio .card:nth-child(2) {
+    transform: translateY(40px) translateX(40px);  /* Вторая карточка смещена вниз и вправо */
+}
+
+.portfolio .card:nth-child(3) {
+    transform: translateY(80px) translateX(80px);  /* Третья карточка смещена дальше */
+}
+
+.portfolio .card:nth-child(4) {
+    transform: translateY(120px) translateX(120px);  /* Четвертая карточка смещена еще больше */
+}
+
+/* Медиа-запрос для экрана 412x915 */
+@media (max-width: 412px) and (max-height: 915px) { 
+    .portfolio {
+        border: 2px solid red; /* Добавляет красную рамку вокруг блока */
+        margin-top: 33%;
+        right: 11%;  /* Уменьшаем отступ с правой стороны на мобильных устройствах */
+        display: flex;  /* Используем flexbox для расположения карточек */
+        flex-direction: column;  /* Располагаем карточки вертикально */
+        gap: 15px;  /* Отступы между карточками */
+        justify-content: center;  /* Выравниваем карточки по центру по вертикали */
+        align-items: center;  /* Выравниваем карточки по центру по горизонтали */
+    }
+
+    .card {
+        width: 170%;  /* Устанавливаем ширину карточек на всю ширину контейнера */
+        max-width: 350px;  /* Максимальная ширина карточки */
+        height: 130px;
+        border: 2px solid red; /* Добавляет красную рамку вокруг блока */
+    }
+
+    /* Лестничное расположение карточек */
+    .portfolio .card:nth-child(1) {
+        transform: translateY(0) translateX(0);  /* Первая карточка без смещения */
+    }
+
+    .portfolio .card:nth-child(2) {
+        transform: translateY(0) translateX(0);  /* Вторая карточка без смещения */
+    }
+
+    .portfolio .card:nth-child(3) {
+        transform: translateY(0) translateX(0);  /* Третья карточка без смещения */
+    }
+
+    .portfolio .card:nth-child(4) {
+        transform: translateY(0) translateX(0);  /* Четвертая карточка без смещения */
+    }
+}
+
+
+
